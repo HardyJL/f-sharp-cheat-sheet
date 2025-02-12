@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>F&num; Cheat Sheet</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <!-- title: F# Cheat Sheet -->
+<h1 id="f-cheat-sheet">F# Cheat Sheet</h1>
+<ul>
+<li><a href="#f-cheat-sheet">F# Cheat Sheet</a>
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#current-link">Current Link</a></li>
+<li><a href="#functions">Functions</a>
+<ul>
+<li><a href="#basics">Basics</a>
+<ul>
+<li><a href="#basic-commads-for-every-programm">Basic Commads for every programm</a></li>
+<li><a href="#strings">Strings</a>
+<ul>
+<li><a href="#verbatim-string">Verbatim String</a></li>
+<li><a href="#triple-qoutes-string">Triple Qoutes String</a></li>
+<li><a href="#string-concatenation">String Concatenation</a></li>
+</ul>
+</li>
+<li><a href="#mutables">Mutables</a></li>
+<li><a href="#function-definition">Function Definition</a></li>
+<li><a href="#list-definition">List Definition</a></li>
+<li><a href="#array-definition">Array Definition</a></li>
+</ul>
+</li>
+<li><a href="#operators">Operators</a>
+<ul>
+<li><a href="#basic-operators">Basic operators</a>
+<ul>
+<li><a href="#equal--not-equal">Equal &amp; Not Equal</a></li>
+<li><a href="#char-from-string">Char from string</a></li>
+<li><a href="#range-from-string">Range from string</a></li>
+</ul>
+</li>
+<li><a href="#pipe">Pipe</a></li>
+<li><a href="#composition">Composition</a></li>
+</ul>
+</li>
+<li><a href="#print-escapes">Print escapes</a>
+<ul>
+<li><a href="#baisc-types">Baisc Types</a></li>
+<li><a href="#lists--arrays">Lists &amp; Arrays</a></li>
+<li><a href="#special-characters">Special Characters</a></li>
+<li><a href="#padding">Padding</a></li>
+</ul>
+</li>
+<li><a href="#list-functions">List Functions</a>
+<ul>
+<li><a href="#map">Map</a></li>
+<li><a href="#filter">Filter</a></li>
+</ul>
+</li>
+<li><a href="#string-functions">String functions</a>
+<ul>
+<li><a href="#collect">Collect</a></li>
+<li><a href="#forall">Forall</a></li>
+<li><a href="#exits">Exits</a></li>
+<li><a href="#init">Init</a></li>
+<li><a href="#iter">Iter</a></li>
+</ul>
+</li>
+<li><a href="#char-functions">Char functions</a>
+<ul>
+<li><a href="#isdigit">IsDigit</a></li>
+<li><a href="#isupper">IsUpper</a></li>
+</ul>
+</li>
+<li><a href="#math-functions">Math functions</a>
+<ul>
+<li><a href="#basics-1">Basics</a>
+<ul>
+<li><a href="#addition--subtraction">Addition &amp; Subtraction</a></li>
+<li><a href="#division--multiplication">Division &amp; Multiplication</a></li>
+<li><a href="#exponential--square-root">Exponential &amp; Square Root</a></li>
+<li><a href="#rounding">Rounding</a></li>
+<li><a href="#logarithmic">Logarithmic</a></li>
+<li><a href="#absolute-values">Absolute Values</a></li>
+</ul>
+</li>
+<li><a href="#advanced-math-functions">Advanced Math Functions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="introduction">Introduction</h2>
+<p>This is a short overview over all of the F# commands that we have learned during our learning process.</p>
+<h2 id="current-link">Current Link</h2>
+<p><a href="https://youtu.be/c7eNDJN758U?t=2046">https://youtu.be/c7eNDJN758U?t=2046</a></p>
+<h2 id="functions">Functions</h2>
+<h3 id="basics">Basics</h3>
+<p>These are the basic functions and definitions we need to make the programm run.</p>
+<p><strong>Remeber Variables are defined in Lower Snake Case</strong></p>
+<pre><code class="language-fs"><span class="hljs-keyword">let</span> this_is_the_way 
+</code></pre>
+<h4 id="basic-commads-for-every-programm">Basic Commads for every programm</h4>
+<pre><code class="language-fs"><span class="hljs-comment">// function or variable definition</span>
+<span class="hljs-keyword">let</span>
+
+<span class="hljs-comment">// recursive function definition</span>
+<span class="hljs-keyword">let</span> <span class="hljs-keyword">rec</span>
+
+<span class="hljs-comment">// mutable variable</span>
+<span class="hljs-keyword">let</span> <span class="hljs-keyword">mutable</span>
+
+<span class="hljs-comment">// print new line </span>
+<span class="hljs-built_in">printfn</span> <span class="hljs-string">&quot;&quot;</span> 
+
+<span class="hljs-comment">// print inline</span>
+<span class="hljs-built_in">printf</span> 
+
+<span class="hljs-comment">// import system for reading console input</span>
+<span class="hljs-keyword">open</span> System
+
+<span class="hljs-comment">// get key input from user</span>
+Console.ReadKey()
+
+<span class="hljs-comment">// get console line input from user</span>
+Console.ReadLine()
+
+<span class="hljs-comment">// lambda expression remeber fun</span>
+(<span class="hljs-keyword">fun</span> x <span class="hljs-operator">-&gt;</span> x <span class="hljs-operator">*</span> <span class="hljs-number">2</span>)
+
+<span class="hljs-comment">// GetType Expression</span>
+<span class="hljs-keyword">let</span> x <span class="hljs-operator">=</span> <span class="hljs-number">10</span>
+<span class="hljs-built_in">printfn</span> <span class="hljs-string">&quot;TypeOf %A&quot;</span> (x.GetType())
+
+<span class="hljs-comment">// exit programm</span>
+exit <span class="hljs-number">100</span>
+</code></pre>
+<h4 id="strings">Strings</h4>
+<h5 id="verbatim-string">Verbatim String</h5>
+<pre><code class="language-fs"><span class="hljs-keyword">let</span> varbatim_string <span class="hljs-operator">=</span> <span class="hljs-string">@&quot;This ignores backslashes&quot;</span>
+</code></pre>
+<h5 id="triple-qoutes-string">Triple Qoutes String</h5>
+<pre><code class="language-fs"><span class="hljs-keyword">let</span> triple_string <span class="hljs-operator">=</span> <span class="hljs-string">&quot;&quot;&quot;This ignores backslashes and double &quot;quotes&quot; &quot;&quot;&quot;</span>
+</code></pre>
+<h5 id="string-concatenation">String Concatenation</h5>
+<p>Use <code>+</code> to concatenate strings</p>
+<pre><code class="language-fs"><span class="hljs-keyword">let</span> strings <span class="hljs-operator">=</span> <span class="hljs-string">&quot;test&quot;</span> <span class="hljs-operator">+</span> <span class="hljs-string">&quot;test2&quot;</span>
+</code></pre>
+<h4 id="mutables">Mutables</h4>
+<p>Mutables are not commonly used in f# but this is how.</p>
+<pre><code class="language-fs"><span class="hljs-comment">// mutable variable</span>
+<span class="hljs-keyword">let</span> <span class="hljs-keyword">mutable</span> weight <span class="hljs-operator">=</span> <span class="hljs-number">90</span>
+
+<span class="hljs-comment">// change mutable variable  </span>
+weight <span class="hljs-operator">&lt;-</span> <span class="hljs-number">85</span>
+
+<span class="hljs-comment">// other approach</span>
+<span class="hljs-keyword">let</span> change_me <span class="hljs-built_in">ref</span> <span class="hljs-number">10</span>
+change_me <span class="hljs-operator">:=</span> <span class="hljs-number">50</span>
+
+<span class="hljs-comment">// in order to print this we have to use a ! in the print statement</span>
+<span class="hljs-built_in">printfn</span> <span class="hljs-string">&quot;Print change_me %i&quot;</span> <span class="hljs-operator">!</span> change_me
+</code></pre>
+<h4 id="function-definition">Function Definition</h4>
+<pre><code class="language-fs"><span class="hljs-comment">//  func name | paramenter | return type | function value</span>
+<span class="hljs-keyword">let</span> double <span class="hljs-operator">=</span> (x <span class="hljs-operator">:</span> <span class="hljs-type">int</span>) <span class="hljs-operator">:</span> <span class="hljs-type">int</span> <span class="hljs-operator">=</span> x <span class="hljs-operator">+</span> x
+</code></pre>
+<h4 id="list-definition">List Definition</h4>
+<p>A list is an immutable collection of elements of the same type. Implemented internally as a linked list.</p>
+<p><em><strong>Not with comma!</strong></em></p>
+<pre><code class="language-fs"><span class="hljs-keyword">let</span> new_list <span class="hljs-operator">=</span> [<span class="hljs-number">1</span>;<span class="hljs-number">2</span>;<span class="hljs-number">3</span>;<span class="hljs-number">4</span>]
+</code></pre>
+<h4 id="array-definition">Array Definition</h4>
+<p>Arrays are fixed-size, zero-based, collections of consecutive data elements maintained as one block of memory. They are mutable; individual elements can be changed.</p>
+<h3 id="operators">Operators</h3>
+<h4 id="basic-operators">Basic operators</h4>
+<h5 id="equal--not-equal">Equal &amp; Not Equal</h5>
+<pre><code class="language-fs"><span class="hljs-keyword">let</span> equal <span class="hljs-operator">=</span> <span class="hljs-number">1</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span> <span class="hljs-comment">// true</span>
+<span class="hljs-keyword">let</span> not_equal <span class="hljs-operator">=</span> <span class="hljs-number">1</span> <span class="hljs-operator">&lt;&gt;</span> <span class="hljs-number">2</span> <span class="hljs-comment">// true</span>
+</code></pre>
+<h5 id="char-from-string">Char from string</h5>
+<p>Get a single char from string using <code>.[x]</code></p>
+<pre><code class="language-fs"><span class="hljs-keyword">let</span> char1 <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Test1234&quot;</span>.[<span class="hljs-number">0</span>] <span class="hljs-comment">// T</span>
+</code></pre>
+<h5 id="range-from-string">Range from string</h5>
+<p>Get a range of chars from string using <code>.[x..y]</code></p>
+<pre><code class="language-fs"><span class="hljs-keyword">let</span> char1 <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Test1234&quot;</span>.[<span class="hljs-number">0.</span><span class="hljs-number">.3</span>] <span class="hljs-comment">// Test</span>
+</code></pre>
+<h4 id="pipe">Pipe</h4>
+<p>Pipe operator <code>|&gt;</code> is used to chain functions and arguments together.</p>
+<pre><code>let addTwoSubtractTwoNegateAndPrint num =
+    num |&gt; add 2 |&gt; subtract 2 |&gt; negate |&gt; print
+</code></pre>
+<h4 id="composition">Composition</h4>
+<p>Composition operator <code>&gt;&gt;</code> is used to compose functions:</p>
+<pre><code class="language-fs">    <span class="hljs-keyword">let</span> addTwoSubtractTwoNegateAndPrint&#x27; <span class="hljs-operator">=</span> 
+    add <span class="hljs-number">2</span> <span class="hljs-operator">&gt;&gt;</span> subtract <span class="hljs-number">2</span> <span class="hljs-operator">&gt;&gt;</span> negate <span class="hljs-operator">&gt;&gt;</span> print
+</code></pre>
+<p>Caution: The output is the <em>last</em> argument to the next function.</p>
+<pre><code class="language-fs">    <span class="hljs-comment">// `addTwoSubtractTwoNegateAndPrint 10` becomes:</span>
+    <span class="hljs-number">10</span>
+    <span class="hljs-operator">|&gt;</span> add <span class="hljs-number">2</span>       <span class="hljs-comment">//  2 + 10  = 12</span>
+    <span class="hljs-operator">|&gt;</span> subtract <span class="hljs-number">2</span>  <span class="hljs-comment">//  2 - 12  = -10</span>
+    <span class="hljs-operator">|&gt;</span> negate      <span class="hljs-comment">// -1 * -10 = 10</span>
+    <span class="hljs-operator">|&gt;</span> print       <span class="hljs-comment">// &quot;The number is 10&quot;</span>
+</code></pre>
+<h3 id="print-escapes">Print escapes</h3>
+<p>Print escapes are used in the string while printing to the console.</p>
+<h4 id="baisc-types">Baisc Types</h4>
+<pre><code class="language-fsharp"><span class="hljs-built_in">printfn</span> <span class="hljs-string">&quot;This prints a string: %s&quot;</span> <span class="hljs-string">&quot;string&quot;</span>
+
+<span class="hljs-built_in">printfn</span> <span class="hljs-string">&quot;This prints an integer %i&quot;</span> <span class="hljs-number">1</span>
+
+<span class="hljs-built_in">printfn</span> <span class="hljs-string">&quot;This prints a float %f&quot;</span> <span class="hljs-number">1.0</span>
+
+<span class="hljs-built_in">printfn</span> <span class="hljs-string">&quot;This prints a float %b&quot;</span> <span class="hljs-literal">false</span>
+
+<span class="hljs-built_in">printfn</span> <span class="hljs-string">&quot;This prints a float with more values %M&quot;</span> <span class="hljs-number">120.123123142134213</span>M
+
+<span class="hljs-built_in">printfn</span> <span class="hljs-string">&quot;This prints a char %c&quot;</span> <span class="hljs-string">&quot;test&quot;</span>.[<span class="hljs-number">1</span>] 
+<span class="hljs-comment">// or </span>
+<span class="hljs-built_in">printfn</span> <span class="hljs-string">&quot;This prints a char %c&quot;</span> <span class="hljs-string">&#x27;e&#x27;</span>
+
+</code></pre>
+<h4 id="lists--arrays">Lists &amp; Arrays</h4>
+<pre><code class="language-fs"><span class="hljs-built_in">printfn</span> <span class="hljs-string">&quot;This prints a List: %A&quot;</span> [<span class="hljs-number">1</span>;<span class="hljs-number">2</span>;<span class="hljs-number">3</span>;<span class="hljs-number">4</span>;<span class="hljs-number">5</span>;<span class="hljs-number">6</span>]
+</code></pre>
+<h4 id="special-characters">Special Characters</h4>
+<p>You need to escape <code>%</code> and <code>*</code> individually in a string by doubling the char.</p>
+<pre><code class="language-fs"><span class="hljs-keyword">let</span> percent_string <span class="hljs-operator">=</span> <span class="hljs-string">&quot;5 %% 5 = 1&quot;</span>
+<span class="hljs-keyword">let</span> mul_string <span class="hljs-operator">=</span> <span class="hljs-string">&quot;5 ** 5 = 25&quot;</span>
+</code></pre>
+<h4 id="padding">Padding</h4>
+<pre><code class="language-fs"><span class="hljs-built_in">printfn</span> <span class="hljs-string">&quot;This adds padding to the left %-5i&quot;</span> <span class="hljs-number">1</span>
+<span class="hljs-built_in">printfn</span> <span class="hljs-string">&quot;This adds padding to the right %5i&quot;</span> <span class="hljs-number">1</span>
+<span class="hljs-built_in">printfn</span> <span class="hljs-string">&quot;This adds padding to both sides %-5i %5i&quot;</span> <span class="hljs-number">1</span>
+<span class="hljs-built_in">printfn</span> <span class="hljs-string">&quot;This adds dynamic padding  %*s&quot;</span> <span class="hljs-number">1</span> <span class="hljs-string">&quot;test&quot;</span>
+</code></pre>
+<h3 id="list-functions">List Functions</h3>
+<h4 id="map">Map</h4>
+<p>Map changes every element of a list.</p>
+<pre><code class="language-fs"><span class="hljs-keyword">let</span> list <span class="hljs-operator">=</span> [<span class="hljs-number">1</span>;<span class="hljs-number">2</span>;<span class="hljs-number">3</span>;<span class="hljs-number">4</span>]
+<span class="hljs-keyword">let</span> doubled <span class="hljs-operator">=</span> list.map(<span class="hljs-keyword">fun</span> x <span class="hljs-operator">-&gt;</span> x <span class="hljs-operator">*</span> <span class="hljs-number">2</span>)
+</code></pre>
+<h4 id="filter">Filter</h4>
+<p>Filter takes only those elemets of a list that fit the filter criteria.</p>
+<pre><code class="language-fs"><span class="hljs-keyword">let</span> list <span class="hljs-operator">=</span> [<span class="hljs-number">1</span>;<span class="hljs-number">2</span>;<span class="hljs-number">3</span>;<span class="hljs-number">4</span>]
+<span class="hljs-keyword">let</span> even_elements <span class="hljs-operator">=</span> list <span class="hljs-operator">|&gt;</span> List.filter(<span class="hljs-keyword">fun</span> x <span class="hljs-operator">-&gt;</span> x <span class="hljs-operator">%</span> <span class="hljs-number">2</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>)
+</code></pre>
+<h3 id="string-functions">String functions</h3>
+<h4 id="collect">Collect</h4>
+<p>Collect iterates over all character and does something with them.</p>
+<pre><code class="language-fs"><span class="hljs-comment">// adds a comma afer every letter</span>
+<span class="hljs-keyword">let</span> commas <span class="hljs-operator">=</span> String.collect (<span class="hljs-keyword">fun</span> x <span class="hljs-operator">-&gt;</span> <span class="hljs-built_in">sprintf</span>(<span class="hljs-string">&quot;%c, &quot;</span>) x) <span class="hljs-string">&quot;commas&quot;</span>
+</code></pre>
+<h4 id="forall">Forall</h4>
+<p>For all checks if the given requirement is met by all characters in a string.</p>
+<pre><code class="language-fs"><span class="hljs-keyword">let</span> is_upper <span class="hljs-operator">=</span> <span class="hljs-string">&quot;TEST&quot;</span> <span class="hljs-operator">|&gt;</span> String.forall(<span class="hljs-keyword">fun</span> x <span class="hljs-operator">-&gt;</span> Char.IsUpper x) <span class="hljs-comment">// true</span>
+</code></pre>
+<h4 id="exits">Exits</h4>
+<p>Tests if any character of the string satisfies the given predicate.</p>
+<pre><code class="language-fs"><span class="hljs-keyword">let</span> exists <span class="hljs-operator">=</span> String.exists(<span class="hljs-keyword">fun</span> x <span class="hljs-operator">-&gt;</span> Char.IsUpper(x)) <span class="hljs-string">&quot;Test1234&quot;</span> 
+<span class="hljs-built_in">printfn</span> <span class="hljs-string">&quot;%b&quot;</span> exists
+</code></pre>
+<h4 id="init">Init</h4>
+<p>Init creates a new string with the length of x.</p>
+<pre><code class="language-fs"><span class="hljs-keyword">let</span> new_string <span class="hljs-operator">=</span> String.init <span class="hljs-number">10</span> (<span class="hljs-keyword">fun</span> x <span class="hljs-operator">-&gt;</span> x.ToString()) 
+<span class="hljs-built_in">printfn</span> <span class="hljs-string">&quot;%s&quot;</span> new_string
+</code></pre>
+<h4 id="iter">Iter</h4>
+<p>String iter does a function for each character in a string. Kinda loke a for each in dart.</p>
+<pre><code class="language-fs">String.iter (<span class="hljs-keyword">fun</span> c <span class="hljs-operator">-&gt;</span> <span class="hljs-built_in">printfn</span> <span class="hljs-string">&quot;%c&quot;</span> c) <span class="hljs-string">&quot;Print Me&quot;</span> 
+</code></pre>
+<h3 id="char-functions">Char functions</h3>
+<h4 id="isdigit">IsDigit</h4>
+<p>Checks if a char is a digit.</p>
+<pre><code class="language-fs">Char.IsDigit()
+</code></pre>
+<h4 id="isupper">IsUpper</h4>
+<p>Checks if a char is upper case.</p>
+<pre><code class="language-fs">Char.IsUpper()
+</code></pre>
+<h3 id="math-functions">Math functions</h3>
+<h4 id="basics-1">Basics</h4>
+<h5 id="addition--subtraction">Addition &amp; Subtraction</h5>
+<pre><code class="language-fs"><span class="hljs-keyword">let</span> add <span class="hljs-operator">=</span> <span class="hljs-number">1</span> <span class="hljs-operator">+</span> <span class="hljs-number">1</span> 
+<span class="hljs-keyword">let</span> sub <span class="hljs-operator">=</span> <span class="hljs-number">2</span> <span class="hljs-operator">-</span> <span class="hljs-number">1</span>
+</code></pre>
+<h5 id="division--multiplication">Division &amp; Multiplication</h5>
+<pre><code class="language-fs"><span class="hljs-keyword">let</span> mul <span class="hljs-operator">=</span> <span class="hljs-number">2</span> <span class="hljs-operator">*</span> <span class="hljs-number">2</span> 
+<span class="hljs-keyword">let</span> div <span class="hljs-operator">=</span> <span class="hljs-number">1</span> <span class="hljs-operator">/</span> <span class="hljs-number">4</span>
+</code></pre>
+<h5 id="exponential--square-root">Exponential &amp; Square Root</h5>
+<p>To calculate an integer to the power of x you use the operator <code>**</code></p>
+<pre><code class="language-fs"><span class="hljs-keyword">let</span> power_of_two <span class="hljs-operator">=</span> <span class="hljs-number">2</span> <span class="hljs-operator">**</span> <span class="hljs-number">2</span> <span class="hljs-comment">// 4 </span>
+</code></pre>
+<p>To calculate the Square root use <code>sqrt(x)</code></p>
+<pre><code class="language-fs">sqrt(<span class="hljs-number">25.0</span>) <span class="hljs-comment">// -&gt; float</span>
+</code></pre>
+<h5 id="rounding">Rounding</h5>
+<pre><code class="language-fs"><span class="hljs-comment">// round up</span>
+floor(<span class="hljs-number">4.5</span>) <span class="hljs-comment">// -&gt; float</span>
+
+<span class="hljs-comment">// round down</span>
+ceil(<span class="hljs-number">4.5</span>) <span class="hljs-comment">// -&gt; float</span>
+</code></pre>
+<h5 id="logarithmic">Logarithmic</h5>
+<pre><code class="language-fs">log <span class="hljs-number">2.2</span> <span class="hljs-comment">// -&gt; float</span>
+log10 <span class="hljs-number">1000</span> <span class="hljs-comment">// -&gt; float</span>
+</code></pre>
+<h5 id="absolute-values">Absolute Values</h5>
+<pre><code class="language-fs">abs(<span class="hljs-number">-1</span>) <span class="hljs-comment">// -&gt; int</span>
+</code></pre>
+<h4 id="advanced-math-functions">Advanced Math Functions</h4>
+
+            
+            
+        </body>
+        </html>
